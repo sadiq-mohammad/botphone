@@ -1,103 +1,104 @@
-import Image from "next/image";
+
+import Image from 'next/image';
+import sandlogicLogo from '@/static/images/sandlogicLogo.png';
+import Card from '@/components/card';
+
 
 export default function Home() {
+  const agents=[
+    {
+      name: "Sam",
+      role: "Banking Assistance Agent",
+      image: '/images/sam.png',
+      desc: "A banking bot manages finances by checking balances, transferring funds, and paying bills.",
+    },
+    {
+      name: "Mary",
+      role: "Lead Qualification Assistance Agent",
+      image: '/images/mary.png',
+      desc: "A lead qualification bot engages prospects, gathers data, and assesses sales potential.",
+    },
+    {
+      name: "Vikram",
+      role: "Vehicle Assistance Agent",
+      image: '/images/vikram.jpg',
+      desc: "A vehicle bot provides navigation, maintenance alerts, and roadside assistance.",
+    },
+    {
+      name: "Ruby",
+      role: "Foxtel Assistance Agent",
+      image: "images/ruby.jpg",
+      desc:
+        "A Foxtell bot manages TV subscriptions, troubleshooting, and content discovery.",
+    },
+    {
+      name: "Neha",
+      role: "Atomberg Assistance Agent",
+      image: "images/neha.jpg",
+      desc:
+        "An Atomberg bot offers product support, troubleshooting, and energy-saving tips.",
+    },
+    {
+      name: "Sania",
+      role: "Retail Assistance Agent",
+      image: "images/sania.jpg",
+      desc:
+        "A retail bot assists with product inquiries, order tracking, and recommendations.",
+    },
+    {
+      name: "Aria",
+      role: "Healthcare Assistance Agent",
+      image: "images/aria.jpg",
+      desc:
+        "A healthcare bot handles medical info, appointments, and symptom checks.",
+    },
+    {
+      name: "Priya",
+      role: "Customer Support Assistance Agent",
+      image: "images/priya.jpg",
+      desc:
+        "A customer support agent resolves inquiries, troubleshoots, and provides product details.",
+    },
+    {
+      name: "Aditi",
+      role: "Customer Support English ",
+      image: "images/aditi.jpg",
+      desc:
+        "Helps users make reservations, order food, check menus, and receive dining recommendations.",
+    }
+  ]
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className={`h-screen flex flex-col bg-[#E2EEFE] `}>  {/* ${person ? "blur-bg" : ""} */}
+       <header className=" text-white flex items-center justify-centers fixed top-0 w-full z-10 h-20 p-2 md:px-16 lg:px-22" >
+        <div className="text-[#473F4B]">
+        <p className="font-semibold text-xl">Need Help?</p>
+        <p className="font-bold text-xl md:text-2xl">
+          Our AI Assistants Have the Answers!
+        </p>
+      </div>
+    </header>
+    <main className="flex-grow mt-[5rem] mb-[4rem] overflow-y-scroll bg-s-100 px-2 md:px-16 lg:px-22 scrollbar-hide w-full">
+      <div className='flex flex-wrap gap-1 mt-[30px]'>
+        {agents.map((agent, index)=>(
+          <Card key={index} name={agent.name} role={agent.role} image={agent.image} desc={agent.desc}></Card>
+        ))}
+      </div>
+    </main>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+    <footer className=" text-white fixed bottom-0 w-full h-16 flex items-center justify-center z-10 px-8 md:px-24 l gap-4">
+    <p className="text-[#8D8194]">Brought to you by</p>
+    <div className="">
+      <img src='/images/sandlogic.jpg' alt='logo' className='w-[150px] h-[50px]'></img>
+    <Image
+      src='/images/sandlogic.jpg'
+      alt="Sandlogic Logo"
+      width={150}
+      height={50}
+    />
     </div>
+  </footer>
+
+  </div>
   );
 }
